@@ -1,5 +1,5 @@
 def hej():
-    print("hej")
-    print("olaaa")
+    print("hejjjjj")
+    print("olaaa maniana")
 
 hej()
