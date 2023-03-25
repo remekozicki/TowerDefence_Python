@@ -17,7 +17,7 @@ class Game:
 
         while self.running:
 
-            # delta = self.clock.tick(60) / 1000.0
+            delta = self.clock.tick(60) / 1000.0
 
             # quit events
 
@@ -26,4 +26,4 @@ class Game:
                     self.running = False
                     raise SystemExit
 
-        self.window.clear()
+            self.window.clear()
