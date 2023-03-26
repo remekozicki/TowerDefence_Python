@@ -9,7 +9,7 @@ pygame.init()
 # Create a window
 window = Window(1280, 768)
 window.set_title("Tower Defence")
-window.set_background(148, 0, 0)
+window.set_background(0, 100, 100)
 
 # Create the game instance
 game = Game(window)

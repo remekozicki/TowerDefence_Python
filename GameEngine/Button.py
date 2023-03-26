@@ -19,13 +19,14 @@ class Button():
         }
 
         self.buttonSurface = pygame.Surface((self.width, self.height))
-        self.buttonRect = pygame.Rect(self.x, self.y, self.width, self.height)
+        self.buttonRect = pygame.Rect(x, self.y, self.width, self.height)
 
         self.buttonSurf = self.font.render(buttonText, True, (20, 20, 20))
 
     def process(self, screen):
         mousePos = pygame.mouse.get_pos()
         self.buttonSurface.fill(self.fillColors['normal'])
+        print("elo")
         if self.buttonRect.collidepoint(mousePos):
             self.buttonSurface.fill(self.fillColors['hover'])
             if pygame.mouse.get_pressed(num_buttons=3)[0]:

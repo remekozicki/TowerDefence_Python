@@ -1,6 +1,6 @@
 import pygame
 import random
-
+from GameEngine.Menu import Menu
 
 class Game:
     # contains basic controls and game loop
@@ -9,6 +9,7 @@ class Game:
 
         self.window = window
         self.clock = pygame.time.Clock()
+        self.menu = Menu(self.window.screen)
 
     def run(self):
         # main game loop
@@ -25,5 +26,11 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.running = False
                     raise SystemExit
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if not self.menu.visible:
+                        self.menu.visible = True
+
+            if(self.menu.visible):
+                self.menu.draw()
 
             self.window.clear()
