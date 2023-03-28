@@ -26,9 +26,12 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.running = False
                     raise SystemExit
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if not self.menu.visible:
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if self.menu.visible:
+                        self.menu.menu_clicked()
+                    else:
                         self.menu.visible = True
+
 
             if(self.menu.visible):
                 self.menu.draw()

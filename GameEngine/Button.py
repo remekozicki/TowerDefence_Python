@@ -23,10 +23,19 @@ class Button():
 
         self.buttonSurf = self.font.render(buttonText, True, (20, 20, 20))
 
+    # rozbić na osobne funkcje rysowania i odpalania funkcji
     def process(self, screen):
-        mousePos = pygame.mouse.get_pos()
         self.buttonSurface.fill(self.fillColors['normal'])
-        print("working")
+
+        self.buttonSurface.blit(self.buttonSurf, [
+            self.buttonRect.width / 2 - self.buttonSurf.get_rect().width / 2,
+            self.buttonRect.height / 2 - self.buttonSurf.get_rect().height / 2
+        ])
+        screen.blit(self.buttonSurface, self.buttonRect)
+
+    def click(self):
+        mousePos = pygame.mouse.get_pos()
+
         if self.buttonRect.collidepoint(mousePos):
             self.buttonSurface.fill(self.fillColors['hover'])
             if pygame.mouse.get_pressed(num_buttons=3)[0]:
@@ -38,9 +47,3 @@ class Button():
                     self.alreadyPressed = True
             else:
                 self.alreadyPressed = False
-
-        self.buttonSurface.blit(self.buttonSurf, [
-            self.buttonRect.width / 2 - self.buttonSurf.get_rect().width / 2,
-            self.buttonRect.height / 2 - self.buttonSurf.get_rect().height / 2
-        ])
-        screen.blit(self.buttonSurface, self.buttonRect)
